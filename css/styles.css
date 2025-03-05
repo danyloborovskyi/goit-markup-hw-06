@@ -145,9 +145,12 @@ main {
   width: 320px;
   height: 100%;
   background-color: var(--white);
-  padding: 72px 24px 0 24px;
+  padding: 72px 24px 40px 24px;
   transition: transform var(--function);
   transform: translateX(100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .navigation-list-mobile {
@@ -193,8 +196,11 @@ main {
   width: 100%;
 }
 
+.mobile-menu-info-wrapper {
+  
+}
+
 .contacts-mobile {
-  margin-top: 168px;
   font-style: normal;
 }
 
@@ -208,6 +214,7 @@ main {
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--text);
+  transition: color var(--function);
 }
 
 .contacts-link-mobile:hover,
@@ -350,8 +357,14 @@ main {
   flex-direction: column;
   background-color: var(--white);
   border-radius: 0 0 4px 4px;
-  padding-bottom: 32px;
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08), 0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.employee-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px;
 }
 
 .employee-full-name {
@@ -362,7 +375,6 @@ main {
   text-align: center;
   color: var(--dark);
   margin-bottom: 8px;
-  margin-top: 32px;
 }
 .employee-position {
   font-size: 16px;
@@ -417,18 +429,18 @@ main {
 
 .portfolio-list {
   display: flex;
-  gap: 24px;
+  gap: 48px;
   flex-wrap: wrap;
 }
 
-.portfolio-link{
+.portfolio-item {
   display: flex;
   flex-direction: column;
   transition: box-shadow var(--function);
+  cursor: pointer;
 }
 
-.portfolio-link:hover,
-.portfolio-link:focus {
+.portfolio-item:hover {
   box-shadow: 1px 4px 6px 0 rgba(0, 0, 0, .16), 0 4px 4px 0 rgba(0, 0, 0, .06), 0 1px 1px 0 rgba(0, 0, 0, .12);
 }
 
@@ -454,13 +466,12 @@ main {
   transition: transform var(--function);
 }
 
-.portfolio-link:hover .portfolio-slide,
-.portfolio-link:focus .portfolio-slide {
+.portfolio-item:hover .portfolio-slide {
   transform: translateY(0);
 }
 
 .portfolio-info {
-  padding: 32px 0 31px 16px; 
+  padding: 32px 16px 31px 16px; 
   border-bottom: 1px solid var(--accent);
   border-left: 1px solid var(--accent);
   border-right: 1px solid var(--accent);
@@ -666,9 +677,9 @@ main {
   }
 
   .contacts-link {
-  font-size: 16px;
-  line-height: 1.5;
-  letter-spacing: 0.02em;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.04em;
   color: var(--text);
   transition: color, var(--function);
 }
@@ -698,8 +709,6 @@ main {
   margin-bottom: 36px;
 }
 
-/* FEATURES */
-
 /* OUR TEAM */
 
 .employee-list {
@@ -712,14 +721,14 @@ main {
 
 }
 
-@media screen and (min-width: 768px) and (max-width:1128px){
+@media screen and (min-width: 768px) and (max-width: 1158px){
 
   .features-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
-  gap: 24px;
+  gap: 72px 24px;
 }
 
 .features-item {
@@ -727,15 +736,16 @@ main {
   flex-basis: calc((100% - 24px) / 2);
 }
 
-.features-item:nth-child(1),
-.features-item:nth-child(2) {
-  padding-bottom: 48px;
+/* OUR TEAM */
+
+.employee-list {
+  gap: 64px 24px;
 }
 
-/* OUR TEAM */
-.employee-item:nth-child(1), 
-.employee-item:nth-child(2) {
-  margin-bottom: 40px;
+/* PORTFOLIO */
+
+.portfolio-list {
+  gap: 72px 24px;
 }
 
 /* FOOTER */
@@ -746,10 +756,10 @@ main {
   flex-wrap: wrap;
   align-items: start;
   gap: 24px;
+  width: 584px;
 }
 
 .logo-footer {
-  margin-left: 93px;
   align-items: start;
 }
 
@@ -762,7 +772,7 @@ main {
 }
 
 .subscribe {
-  margin-left: 93px;
+  
 }
 
 .subscribe-form {
@@ -812,10 +822,21 @@ main {
     display: flex;
   }
 
+  .contacts-link {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+  }
+
   /* HERO */
+  main .section-hero {
+    margin: 0 auto;
+  }
+
   .section-hero {
   background-image: linear-gradient(to bottom, rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/hero/hero-1440.jpg);
   padding: 188px 0;
+  max-width: 1440px;
   background-size: auto;
   
 
@@ -872,7 +893,7 @@ main {
 
   .portfolio-list {
   display: flex;
-  gap: 24px;
+  gap: 40px 24px;
   flex-wrap: wrap;
 }
 
@@ -1136,7 +1157,7 @@ main {
   top: 50%;
   transform: translateY(-50%);
   left: 0;
-  background-image: url(/svg/checkbox.svg);
+  background-image: url(../svg/checkbox.svg);
   opacity: 0;
   transition: opacity var(--function);
 }
